@@ -11,6 +11,24 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
+CREATE TABLE follows (
+    follower_id INTEGER NOT NULL,
+    followee_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(follower_id) REFERENCES users(id),
+    FOREIGN KEY(followee_id) REFERENCES users(id),
+    PRIMARY KEY(follower_id, followee_id)
+);
+
+CREATE TABLE unfollows (
+    unfollower_id INTEGER NOT NULL,
+    unfollowee_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(unfollower_id) REFERENCES users(id),
+    FOREIGN KEY(unfollowee_id) REFERENCES users(id),
+    PRIMARY KEY(unfollower_id, unfollowee_id)
+);
+
 CREATE TABLE photos (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     image_url VARCHAR(255) NOT NULL,
@@ -39,43 +57,12 @@ CREATE TABLE likes (
     PRIMARY KEY(user_id, photo_id)
 );
 
-CREATE TABLE follows (
-    follower_id INTEGER NOT NULL,
-    followee_id INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY(follower_id) REFERENCES users(id),
-    FOREIGN KEY(followee_id) REFERENCES users(id),
-    PRIMARY KEY(follower_id, followee_id)
-);
 
-CREATE TABLE unfollows (
-    unfollower_id INTEGER NOT NULL,
-    unfollowee_id INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY(unfollower_id) REFERENCES users(id),
-    FOREIGN KEY(unfollowee_id) REFERENCES users(id),
-    PRIMARY KEY(unfollower_id, unfollowee_id)
-);
-
-CREATE TABLE location (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  location_name VARCHAR(255) UNIQUE,
-  created_at TIMESTAMP DEFAULT NOW()
-);
-
-CREATE TABLE photo_location (
-    photo_id INTEGER NOT NULL,
-    location_id INTEGER NOT NULL,
-    FOREIGN KEY(photo_id) REFERENCES photos(id),
-    FOREIGN KEY(location_id) REFERENCES location(id),
-    PRIMARY KEY(photo_id, location_id)
-);
 CREATE TABLE tags (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   tag_name VARCHAR(255) UNIQUE,
   created_at TIMESTAMP DEFAULT NOW()
 );
-
 
 CREATE TABLE photo_tags (
     photo_id INTEGER NOT NULL,
@@ -83,4 +70,18 @@ CREATE TABLE photo_tags (
     FOREIGN KEY(photo_id) REFERENCES photos(id),
     FOREIGN KEY(tag_id) REFERENCES tags(id),
     PRIMARY KEY(photo_id, tag_id)
+);
+
+CREATE TABLE locations (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  location_name VARCHAR(255) UNIQUE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE photo_locations (
+    photo_id INTEGER NOT NULL,
+    location_id INTEGER NOT NULL,
+    FOREIGN KEY(photo_id) REFERENCES photos(id),
+    FOREIGN KEY(location_id) REFERENCES locations(id),
+    PRIMARY KEY(photo_id, location_id)
 );

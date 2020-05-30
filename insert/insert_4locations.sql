@@ -1,7 +1,7 @@
-ALTER TABLE location AUTO_INCREMENT = 1;
+ALTER TABLE locations AUTO_INCREMENT = 1;
 
 
-INSERT INTO location
+INSERT INTO locations
 		(location_name)
 	VALUES
 		('Manchester'),

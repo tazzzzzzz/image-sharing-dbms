@@ -1,4 +1,4 @@
-INSERT INTO photo_location
+INSERT INTO photo_locations
                     (photo_id, location_id)
                 VALUES
                     (1, 18),
