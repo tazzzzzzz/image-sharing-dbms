@@ -1,11 +1,11 @@
 ## Getting Started
 Run the below given commands on an instance of a mysql server. 
 
-## DDL Script:
+## DDL Script
 For creating the database, and setting up the relations, run `source ./DDL.sql`
 You can view and verify the tables that have been created by running `show tables;`
 
-## Inserting Data:
+## Inserting Data
 For inserting the data into the tables, copy the below commands, and paste them directly onto the server-cli.
 <pre>
 source ./insert/insert_1users.sql
@@ -19,14 +19,14 @@ source ./insert/insert_8photo_tags.sql
 source ./insert/insert_9photo_locations.sql
 </pre>
 
-## Setting up Triggers:
+## Setting up Triggers
 <pre>
 source ./triggers/prevent_self_follows.sql
 source ./triggers/unfollows.sql
 </pre>
 You can view and verify the triggers that have been set up by running `show triggers;`
 
-## Running Queries:
+## Running Queries
 <pre>
 source ./queries/1.sql
 source ./queries/2.sql
