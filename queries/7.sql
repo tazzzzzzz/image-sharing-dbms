@@ -1,9 +1,9 @@
 SELECT 
-    username, 
-    user_id,
+    tags.tag_name,
     COUNT(*) AS total
- FROM users
- INNER JOIN likes
-    ON likes.user_id = users.id
-GROUP BY likes.user_id
-HAVING total = (SELECT COUNT(*) FROM photos);
+from photo_tags
+JOIN tags
+    ON photo_tags.tag_id = tags.id
+GROUP BY tags.id 
+ORDER BY total DESC
+LIMIT 5;

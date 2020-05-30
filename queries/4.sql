@@ -1,3 +1,4 @@
+-- 
 SELECT 
     username, photos.id, 
     photos.image_url,

@@ -36,4 +36,5 @@ source ./queries/4.sql
 source ./queries/5.sql
 source ./queries/6.sql
 source ./queries/7.sql
+source ./queries/8.sql
 </pre>
