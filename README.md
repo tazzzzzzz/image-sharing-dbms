@@ -3,6 +3,7 @@ Run the below given commands on an instance of a mysql server.
 
 ## DDL Script:
 For creating the database, and setting up the relations, run `source ./DDL.sql`
+You can view and verify the tables that have been created by running `show tables;`
 
 ## Inserting Data:
 For inserting the data into the tables, copy the below commands, and paste them directly onto the server-cli.
@@ -17,8 +18,6 @@ source ./insert/insert_7comments.sql
 source ./insert/insert_8photo_tags.sql
 source ./insert/insert_9photo_locations.sql
 </pre>
-
-You can view and verify the tables that have been created by running `show tables;`
 
 ## Setting up Triggers:
 <pre>
