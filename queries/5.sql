@@ -1,9 +1,13 @@
-SELECT users.id, username
-    FROM users
-        LEFT JOIN photos 
-            ON users.id = photos.user_id
-        LEFT JOIN comments 
-            ON users.id = comments.user_id
-        LEFT JOIN likes 
-            ON users.id = likes.user_id
-    WHERE photos.id IS NULL AND comments.id IS NULL AND likes.created_at IS NULL;
+-- 
+SELECT 
+    username, photos.id, 
+    photos.image_url,
+    COUNT(*) AS TOTAL
+FROM photos
+INNER JOIN likes
+    ON likes.photo_id = photos.id
+INNER JOIN users
+    ON photos.user_id = users.id
+GROUP BY photos.id
+ORDER BY TOTAL DESC
+LIMIT 1;
