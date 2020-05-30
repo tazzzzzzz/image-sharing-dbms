@@ -1,3 +1,4 @@
+-- Requirement: List out the 5 most frequently used tags.
 SELECT 
     tags.tag_name,
     COUNT(*) AS total
