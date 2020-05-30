@@ -1,4 +1,4 @@
---Requirement: Determine the user and the image that has got the most likes.
+-- Requirement: Determine the user and the image that has got the most likes.
 SELECT 
     username, photos.id as "photo id", 
     photos.image_url,

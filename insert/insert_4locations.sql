@@ -2,7 +2,7 @@ ALTER TABLE locations AUTO_INCREMENT = 1;
 
 
 INSERT INTO locations
-		(location_name)
+    (location_name)
 	VALUES
 		('Manchester'),
 		('Palermo'),

@@ -11,4 +11,5 @@ CREATE TRIGGER capture_unfollow
 $$
 DELIMITER ;
 
--- DELETE from follows WHERE follower_id=2 and followee_id=1;
+-- DELETE FROM follows WHERE follower_id=2 and followee_id=1;
+-- SELECT * FROM unfollows; 
