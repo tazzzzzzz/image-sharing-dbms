@@ -4,7 +4,7 @@ USE image_share;
 
 CREATE TABLE users (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) UNIQUE NOT NULL,
+    username VARCHAR(255) NOT NULL,
     age INT NOT NULL CHECK (age>18),
     gender char(1) NOT NULL CHECK (gender in ('M','F')),
     password_hash varchar(255) NOT NULL,
