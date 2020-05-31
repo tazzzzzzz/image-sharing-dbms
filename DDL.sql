@@ -11,31 +11,20 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE follows (
-    follower_id INTEGER NOT NULL,
-    followee_id INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY(follower_id) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    FOREIGN KEY(followee_id) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    PRIMARY KEY(follower_id, followee_id)
+
+CREATE TABLE tags (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  tag_name VARCHAR(255) UNIQUE,
+  created_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE unfollows (
-    unfollower_id INTEGER NOT NULL,
-    unfollowee_id INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT NOW(),
-    FOREIGN KEY(unfollower_id) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    FOREIGN KEY(unfollowee_id) REFERENCES users(id)
-        ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    PRIMARY KEY(unfollower_id, unfollowee_id)
+
+CREATE TABLE locations (
+  id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  location_name VARCHAR(255) UNIQUE,
+  created_at TIMESTAMP DEFAULT NOW()
 );
+
 
 CREATE TABLE photos (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -47,6 +36,7 @@ CREATE TABLE photos (
         ON UPDATE CASCADE
         ON DELETE CASCADE
 );
+
 
 CREATE TABLE comments (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -62,6 +52,7 @@ CREATE TABLE comments (
         ON DELETE CASCADE
 );
 
+
 CREATE TABLE likes (
     user_id INTEGER NOT NULL,
     photo_id INTEGER NOT NULL,
@@ -76,11 +67,33 @@ CREATE TABLE likes (
 );
 
 
-CREATE TABLE tags (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  tag_name VARCHAR(255) UNIQUE,
-  created_at TIMESTAMP DEFAULT NOW()
+CREATE TABLE follows (
+    follower_id INTEGER NOT NULL,
+    followee_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(follower_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY(followee_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    PRIMARY KEY(follower_id, followee_id)
 );
+
+
+CREATE TABLE unfollows (
+    unfollower_id INTEGER NOT NULL,
+    unfollowee_id INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY(unfollower_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    FOREIGN KEY(unfollowee_id) REFERENCES users(id)
+        ON UPDATE CASCADE
+        ON DELETE CASCADE,
+    PRIMARY KEY(unfollower_id, unfollowee_id)
+);
+
 
 CREATE TABLE photo_tags (
     photo_id INTEGER NOT NULL,
@@ -94,20 +107,14 @@ CREATE TABLE photo_tags (
     PRIMARY KEY(photo_id, tag_id)
 );
 
-CREATE TABLE locations (
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  location_name VARCHAR(255) UNIQUE,
-  created_at TIMESTAMP DEFAULT NOW()
-);
 
 CREATE TABLE photo_locations (
-    photo_id INTEGER NOT NULL,
+    photo_id INTEGER NOT NULL PRIMARY KEY,
     location_id INTEGER NOT NULL,
     FOREIGN KEY(photo_id) REFERENCES photos(id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
     FOREIGN KEY(location_id) REFERENCES locations(id)
         ON UPDATE CASCADE
-        ON DELETE CASCADE,
-    PRIMARY KEY(photo_id, location_id)
+        ON DELETE CASCADE
 );
