@@ -37,6 +37,21 @@ Thus, all the required conditions for 2NF have been met.
 2.  It has been ensured that no attributes depend upon non-prime attributes. Thus, no transitive dependencies are observed.
 Thus, 3NF can be observed to be followed.
 
+#### BCNF
+1.  3NF has been enforced.
+2.  In all the relations that require a composite primary key, no non-prime attribute can be used to derive the any part of the composite key, i.e., a candidate key.
+Thus, BCNF is expected to be enforced.
+
+#### 4NF
+1.  BCNF has been enforced.
+2.  All the relations either have a single primary key. Relations that have composite keys, do not exhibit multi-valued dependency (due to lack of independent attributes (since B,C are expected to be dependent for multi-value dependency to be observed between A,B,C)), or have only two columns.
+Thus, it can be inferred that 4NF is in place.
+
+#### 5NF and Lossless Decomposition
+1.  4NF has been enforced.
+2.  A few relations, have been decomposed into more relations, in an attempt to follow the previously mentioned normal forms. However, it is done in such a manner, such that atleast one attribute in the decomposed relations is the candidate key in the parent relation. Decomposition is done in such a manner that their join will not lead to loss of data/redundant data, and join dependencies are regulated.
+Thus, lossless decomposition can be observed, and it can be inferred that 5NF is in place.
+
 
 ## Getting Started
 Run the below given commands on an instance of a mysql server. 
