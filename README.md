@@ -76,8 +76,8 @@ source ./insert/insert_9photo_locations.sql
 
 ## Setting up Triggers
 <pre>
+source ./triggers/capture_unfollow.sql
 source ./triggers/prevent_self_follows.sql
-source ./triggers/unfollows.sql
 </pre>
 You can view and verify the triggers that have been set up by running `show triggers;`
 
