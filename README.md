@@ -1,25 +1,21 @@
 ## Functional Dependencies
-### users
+#### users
 *      id -> {username, age, gender, password_hash, created_at}
 *      username -> {id, age, gender, password_hash, created_at}
 
-### tags
+#### tags
 *     id -> {tag_name, created_at}
 *     tag_name -> {id, created_at}
 
-### locations
+#### locations
 *      id -> {location_name, created_at}
 *      location_name -> {id, created_at}
 
-### photos
+#### photos
 *      id -> {image_url, user_id, caption, created_at}
 
-### comments
+#### comments
 *      id -> {comment_text, photo_id, user_id, created_at}
-
-
-
-
 
 ## Getting Started
 Run the below given commands on an instance of a mysql server. 
