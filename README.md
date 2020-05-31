@@ -1,7 +1,6 @@
 ## Functional Dependencies
 #### users
 *      id → {username, age, gender, password_hash, created_at}
-*      username → {id, age, gender, password_hash, created_at}
 
 #### tags
 *     id → {tag_name, created_at}
