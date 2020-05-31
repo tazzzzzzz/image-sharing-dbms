@@ -17,6 +17,27 @@
 #### comments
 *      id → {comment_text, photo_id, user_id, created_at}
 
+## Normalization
+
+#### 1NF
+1.  All columns contain only atomic values. (ER-to-Relational Mapping Algorithm ensures that all the multivalued attributes will be
+converted into a new set of independent table)
+2.  All columns contain only values of the same type (by virtue of data types defined for attributes).
+3.  All columns have a unique name.
+4.  The order of data storage isn't prioritized, and doesn't matter.
+Thus, 1NF is satisfied.
+
+#### 2NF
+1.  1NF has been enforced.
+2.  It has been ensured that no partial dependencies arise in all the relations that effectuate composite primary keys, i.e., the relations - likes, follows, photo_tags, and photo_locations.
+Thus, all the required conditions for 2NF have been met.
+
+#### 3NF
+1.  2NF has been enforced.
+2.  It has been ensured that no attributes depend upon non-prime attributes. Thus, no transitive dependencies are observed.
+Thus, 3NF can be observed to be followed.
+
+
 ## Getting Started
 Run the below given commands on an instance of a mysql server. 
 
