@@ -14,15 +14,13 @@ CREATE TABLE users (
 
 CREATE TABLE tags (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  tag_name VARCHAR(255) UNIQUE,
-  created_at TIMESTAMP DEFAULT NOW()
+  tag_name VARCHAR(255) UNIQUE
 );
 
 
 CREATE TABLE locations (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  location_name VARCHAR(255) UNIQUE,
-  created_at TIMESTAMP DEFAULT NOW()
+  location_name VARCHAR(255) UNIQUE
 );
 
 
