@@ -27,14 +27,15 @@ CREATE TABLE locations (
 
 
 CREATE TABLE photos (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    id INTEGER AUTO_INCREMENT,
     image_url VARCHAR(255) NOT NULL,
     user_id INTEGER NOT NULL,
     caption VARCHAR(255) DEFAULT NULL,
     created_at TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY(user_id) REFERENCES users(id)
         ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+    PRIMARY KEY(id, user_id)
 );
 
 
