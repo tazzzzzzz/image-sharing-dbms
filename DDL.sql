@@ -38,7 +38,7 @@ CREATE TABLE photos (
 
 
 CREATE TABLE comments (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    id INTEGER AUTO_INCREMENT,
     comment_text VARCHAR(255) NOT NULL,
     photo_id INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
@@ -48,7 +48,8 @@ CREATE TABLE comments (
         ON DELETE CASCADE,
     FOREIGN KEY(user_id) REFERENCES users(id)
         ON UPDATE CASCADE
-        ON DELETE CASCADE
+        ON DELETE CASCADE,
+    PRIMARY KEY(id, photo_id, user_id)
 );
 
 
@@ -90,7 +91,7 @@ CREATE TABLE unfollows (
     FOREIGN KEY(unfollowee_id) REFERENCES users(id)
         ON UPDATE CASCADE
         ON DELETE CASCADE,
-    PRIMARY KEY(unfollower_id, unfollowee_id)
+    PRIMARY KEY(created_at, unfollower_id, unfollowee_id)
 );
 
 
