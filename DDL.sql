@@ -6,7 +6,7 @@ CREATE TABLE users (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     age INT NOT NULL CHECK (age>18),
-    gender char(1) NOT NULL CHECK (gender in ('M','F')),
+    gender char(1) NOT NULL CHECK (gender in ('M','F','O')),
     password_hash varchar(255) NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 );

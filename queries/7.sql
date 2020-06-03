@@ -7,4 +7,4 @@ JOIN tags
     ON photo_tags.tag_id = tags.id
 GROUP BY tags.id 
 ORDER BY total DESC
-LIMIT 10;
+LIMIT 5;
