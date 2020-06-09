@@ -1,3 +1,9 @@
+# Database for an Image Sharing Platform
+Database for an Image Sharing platform (dubbed image-share), as the name suggests, is a database designed for providing SQL-database support for an image sharing platform.
+
+## Documentation
+Detailed documentation, and explanation of the database model and all its respective features (along with some examples of execution), can be found [here](image-share.pdf).
+
 ## Getting Started
 Run the below given commands on an instance of a mysql server. 
 
@@ -19,19 +25,6 @@ source ./insert/insert_8photo_tags.sql
 source ./insert/insert_9photo_locations.sql
 </pre>
 
-
-SELECT COUNT(*) FROM follows;
-SELECT * FROM follows WHERE follows.follower_id=2 AND follows.followee_id=1;
-DELETE FROM follows WHERE follows.follower_id=2 AND follows.followee_id=1;
-SELECT * FROM unfollows;
-SELECT * FROM follows WHERE follows.follower_id=2 AND follows.followee_id=1;
-
-
-SELECT COUNT(*) FROM follows;
-DELETE FROM follows WHERE follows.follower_id=3 AND follows.followee_id=1;
-SELECT * FROM follows WHERE follows.follower_id=3 AND follows.followee_id=1;
-SELECT * FROM unfollows WHERE unfollows.unfollower_id=3 AND unfollows.unfollowee_id=1;
-
 ## Setting up Triggers
 <pre>
 source ./triggers/capture_unfollow.sql
@@ -51,5 +44,5 @@ source ./queries/7.sql
 source ./queries/8.sql
 </pre>
 
-## Further Information
-For more information on the project, and its specifics, do check out the _Wiki_ section.
+## Previous work and due credits
+This work was motivated by the database design and techniques adopted and taught by <a href='https://github.com/Colt'>Colt</a>. <br>However, it is to be noted that, although initially inspiration was drawn from the above-mentioned source, significant changes have been made to the database model and structure.
