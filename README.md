@@ -8,7 +8,8 @@ Detailed documentation, and explanation of the database model and all its respec
 Run the below given commands on an instance of a mysql server. 
 
 ## DDL Script
-For creating the database, and setting up the relations, run `source ./DDL.sql`
+For creating the database, and setting up the relations, run `source ./DDL.sql`. <br>
+Running `source ./DDL2.sql` will do the trick as well. DDL2.sql is a script auto generated using MySQL Workbench's Forward Engineering feature. <br>
 You can view and verify the tables that have been created by running `show tables;`
 
 ## Inserting Data
